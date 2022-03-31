@@ -1,18 +1,14 @@
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import {applyMiddleware, compose, createStore} from "redux";
 import createSagaMiddleware from 'redux-saga'
-import {todosReducer} from "./reduser/todos";
-import { usersReducer } from "./reduser/users";
-import rootSaga from "./sagas";
+import {rootSaga} from "./sagas/rootSaga";
+import {rootReducer} from "./reduser/rootReducer";
 
 declare global {
     interface Window {
         __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
     }
 }
-const rootReducer = combineReducers({
-    todos:todosReducer,
-    users:usersReducer
-})
+
 const sagaMiddleware = createSagaMiddleware()
 const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
 const store = createStore(

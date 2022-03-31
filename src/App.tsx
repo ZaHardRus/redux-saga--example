@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "redux";
+import {fetchTodosAC} from "./redux/sagas/todo-saga/actionCreators";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     }
     return (
         <div className="App">
-            <button onClick={()=>onClickHandler({type:'CLICK'})}>CLICK</button>
+            <button onClick={()=>onClickHandler(fetchTodosAC({limit:10,page:2}))}>CLICK</button>
         </div>
     );
 }
