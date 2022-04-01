@@ -1,8 +1,10 @@
 import {combineReducers} from "redux";
-import {todosReducer} from "./todos";
+import {postsReducer} from "./posts";
 import {usersReducer} from "./users";
+import {userDetailsReducer} from "./userDetails";
 
 export const rootReducer = combineReducers({
-    todo: todosReducer,
-    user: usersReducer
+    post: postsReducer,
+    user: usersReducer,
+    userDetails:userDetailsReducer
 })

@@ -1,0 +1,1 @@
+export const usersSelector = (state:any) => state.user.users

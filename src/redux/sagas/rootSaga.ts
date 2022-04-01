@@ -1,9 +1,10 @@
 import {all, call, spawn} from 'redux-saga/effects'
-import {todoSagaWatcher} from "./todo-saga";
+import {todoSagaWatcher} from "./post-saga";
 import {userSagaWatcher} from "./user-saga";
+import {userDetailsSagaWatcher} from "./userDetails-saga";
 
 export function* rootSaga() {
-    const sagas = [todoSagaWatcher, userSagaWatcher]
+    const sagas = [todoSagaWatcher, userSagaWatcher, userDetailsSagaWatcher]
     const retrySagas = sagas.map(saga => {
         return spawn(function* () {
             while (true) {

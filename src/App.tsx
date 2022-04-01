@@ -1,21 +1,18 @@
 import React from 'react';
+import {Route, Routes } from 'react-router-dom';
 import './App.css';
-import {useDispatch, useSelector} from "react-redux";
-import {Action} from "redux";
-import {fetchTodosAC} from "./redux/sagas/todo-saga/actionCreators";
+import {UsersPage} from "./pages/UsersPage";
+import {UserDetails} from "./pages/UserDetails";
 
 
 function App() {
-    const store = useSelector(store=>store)
-    console.log(store)
-    const dispatch = useDispatch()
-    const onClickHandler = (action:Action) => {
-        dispatch(action)
-    }
     return (
-        <div className="App">
-            <button onClick={()=>onClickHandler(fetchTodosAC({limit:10,page:2}))}>CLICK</button>
-        </div>
+       <Routes>
+           <Route path={'/'} element={<h1>hello</h1>}/>
+           <Route path={'/users'} element={<UsersPage/>}/>
+           <Route path={'/users/:id'} element={<UserDetails/>}/>
+           <Route path={'/posts'} element={<h1>posts</h1>}/>
+       </Routes>
     );
 }
 
